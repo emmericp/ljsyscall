@@ -498,7 +498,7 @@ struct sock_filter {
   uint8_t    jf;
   uint32_t   k;
 };
-struct bpf_insn {
+struct bpf_insn_syscall {
   uint8_t code;   /* opcode */
   uint8_t dst_reg:4;  /* dest register */
   uint8_t src_reg:4;  /* source register */

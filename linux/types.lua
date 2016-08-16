@@ -151,7 +151,7 @@ local iocbs = ffi.typeof("struct iocb[?]")
 t.iocbs = function(n, ...) return ffi.new(iocbs, n, ...) end
 local sock_filters = ffi.typeof("struct sock_filter[?]")
 t.sock_filters = function(n, ...) return ffi.new(sock_filters, n, ...) end
-local bpf_insns = ffi.typeof("struct bpf_insn[?]")
+local bpf_insns = ffi.typeof("struct bpf_insn_syscall[?]")
 t.bpf_insns = function(n, ...) return ffi.new(bpf_insns, n, ...) end
 local iocb_ptrs = ffi.typeof("struct iocb *[?]")
 t.iocb_ptrs = function(n, ...) return ffi.new(iocb_ptrs, n, ...) end
@@ -772,7 +772,7 @@ mt.bpf_insn = {
   end
 }
 
-addtype(types, "bpf_insn", "struct bpf_insn", mt.bpf_insn)
+addtype(types, "bpf_insn", "struct bpf_insn_syscall", mt.bpf_insn)
 
 -- capabilities data is an array so cannot put metatable on it. Also depends on version, so combine into one structure.
 
